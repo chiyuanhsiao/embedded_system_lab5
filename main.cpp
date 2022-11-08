@@ -21,7 +21,7 @@ void pwm_thread(void const *name) {
     while (1) {
         sem.acquire(); 
         if (*((int*)name) == 1) {
-            printf("thread 1: 0 degree\n");
+            printf("thread 1: -45 degree\n");
             led.write(0.05f);
             while (1) {
                 if(button_switch % 3 != 0) 
@@ -29,7 +29,7 @@ void pwm_thread(void const *name) {
             }
         }
         else if (*((int*)name) == 2) {
-            printf("thread 2: 90 degree\n");
+            printf("thread 2: 0 degree\n");
             led.write(0.075f);
             while (1) {
                 if(button_switch % 3 != 1) 
@@ -37,7 +37,7 @@ void pwm_thread(void const *name) {
             }
         }
         else { 
-            printf("thread 3: 180 degree\n");
+            printf("thread 3: 45 degree\n");
             led.write(0.1f);
             while (1) {
                 if(button_switch % 3 != 2) 
